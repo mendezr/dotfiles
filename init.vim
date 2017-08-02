@@ -1,6 +1,3 @@
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-"
-
 " Syntax
 set number
 syntax enable
@@ -14,10 +11,6 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
-" Columns
-" set textwidth=100
-autocmd BufRead,BufNewFile *.py setlocal textwidth=80
-highlight ColorColumn ctermbg=15 guibg=lightgrey
 
 " Unset the "last search pattern"
 nnoremap <CR> :noh<CR><CR>
@@ -35,8 +28,6 @@ set splitright
 set nocompatible
 set backspace=2
 
-" Copy-paste
-" set clipboard=unnamed
 
 " Leader
 let mapleader = ","
@@ -55,7 +46,9 @@ let mapleader = ","
 filetype plugin on
 autocmd FileType tex      set spell spelllang=es
 
-
+" Begin Plug
+" ==============================================================================
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Easy aling
@@ -110,3 +103,15 @@ Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
 
 call plug#end()
+
+" Highlight
+hi MatchParen cterm=none ctermbg=none ctermfg=blue
+
+" Parenthesis
+inoremap ( ()<Esc>:let leavechar=")"<CR>i
+inoremap [ []<Esc>:let leavechar="]"<CR>i
+inoremap ' ''<Esc>:let leavechar="'"<CR>i
+inoremap { {}<Esc>:let leavechar="}"<CR>i
+inoremap " ""<Esc>i
+inoremap <C-s> <Esc>/[)}"'\]>]<CR>:nohl<CR>a
+
