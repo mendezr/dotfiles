@@ -1,4 +1,5 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+"
 
 " Syntax
 set number
@@ -14,10 +15,9 @@ set shiftwidth=2
 set softtabstop=2
 
 " Columns
-set textwidth=100
-" let &colorcolumn=join(range(110,999),",")
+" set textwidth=100
+autocmd BufRead,BufNewFile *.py setlocal textwidth=80
 highlight ColorColumn ctermbg=15 guibg=lightgrey
-set colorcolumn=80
 
 " Unset the "last search pattern"
 nnoremap <CR> :noh<CR><CR>
@@ -82,7 +82,11 @@ Plug 'ervandew/supertab'
 " Remove extraneous whitespace when edit mode is exited
 Plug 'thirtythreeforty/lessspace.vim'
 
+" Autopep8
 Plug 'tell-k/vim-autopep8'
+let g:autopep8_disable_show_diff=1
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -91,11 +95,18 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Colorscheme
-Plug 'hzchirs/vim-material'
-" colorscheme vim-material
+Plug 'flazz/vim-colorschemes'
+colorscheme elflord
+
+" VimTeX
+Plug 'lervag/vimtex'
 
 " YCM
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 let g:python_host_prog = '/home/mendezr/miniconda3/envs/pdf/bin/python'
+
+" Vim-airline
+Plug 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
 
 call plug#end()
