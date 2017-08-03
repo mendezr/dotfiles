@@ -11,6 +11,9 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" habilitar copy-paste
+" -------------------
+  set clipboard=unnamed
 
 " Unset the "last search pattern"
 nnoremap <CR> :noh<CR><CR>
@@ -71,6 +74,8 @@ Plug 'kien/ctrlp.vim'
 
 " Tab completion
 Plug 'ervandew/supertab'
+let g:SuperTabClosePreviewOnPopupClose = 1
+
 
 " Remove extraneous whitespace when edit mode is exited
 Plug 'thirtythreeforty/lessspace.vim'
@@ -97,10 +102,16 @@ Plug 'lervag/vimtex'
 " YCM
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 let g:python_host_prog = '/home/mendezr/miniconda3/envs/pdf/bin/python'
+let g:ycm_server_python_interpreter = '/home/mendezr/miniconda3/envs/pdf/bin/python'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Vim-airline
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
+let g:airline_theme='jellybeans'
+
 
 call plug#end()
 
@@ -108,6 +119,7 @@ call plug#end()
 hi MatchParen cterm=none ctermbg=none ctermfg=blue
 
 " Parenthesis
+vnoremap _( <Esc>`>a)<Esc>`<i(<Esc>
 inoremap ( ()<Esc>:let leavechar=")"<CR>i
 inoremap [ []<Esc>:let leavechar="]"<CR>i
 inoremap ' ''<Esc>:let leavechar="'"<CR>i
