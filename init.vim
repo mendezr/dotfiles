@@ -52,6 +52,7 @@ autocmd FileType tex      set spell spelllang=es
 " Begin Plug
 " ==============================================================================
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Easy aling
@@ -117,9 +118,13 @@ call plug#end()
 
 " Highlight
 hi MatchParen cterm=none ctermbg=none ctermfg=blue
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+
 
 " Parenthesis
 vnoremap _( <Esc>`>a)<Esc>`<i(<Esc>
+vnoremap _' <Esc>`>a'<Esc>`<i'<Esc>
 inoremap ( ()<Esc>:let leavechar=")"<CR>i
 inoremap [ []<Esc>:let leavechar="]"<CR>i
 inoremap ' ''<Esc>:let leavechar="'"<CR>i
