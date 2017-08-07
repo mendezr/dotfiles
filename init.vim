@@ -95,7 +95,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Colorscheme
 Plug 'flazz/vim-colorschemes'
-colorscheme elflord
+" colorscheme elflord
 
 " VimTeX
 Plug 'lervag/vimtex'
@@ -113,14 +113,29 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='jellybeans'
 
+" Clever-f
+Plug 'rhysd/clever-f.vim'
+
+" Colorschemes
+Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'zanglg/nova.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
+
 
 call plug#end()
+" End Plug
+" =========================================================
+
+" Load colorscheme
+colorscheme gruvbox
+set background=dark
 
 " Highlight
 hi MatchParen cterm=none ctermbg=none ctermfg=blue
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
-
 
 " Parenthesis
 vnoremap _( <Esc>`>a)<Esc>`<i(<Esc>
@@ -131,4 +146,3 @@ inoremap ' ''<Esc>:let leavechar="'"<CR>i
 inoremap { {}<Esc>:let leavechar="}"<CR>i
 inoremap " ""<Esc>i
 inoremap <C-s> <Esc>/[)}"'\]>]<CR>:nohl<CR>a
-
