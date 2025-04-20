@@ -9,6 +9,8 @@ config = {
 	window_decorations = "RESIZE",
 	default_cursor_style = "BlinkingBar",
 	color_scheme = "Nord (Gogh)",
+	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
+	font_size = 13.0,
 }
 
 return config
